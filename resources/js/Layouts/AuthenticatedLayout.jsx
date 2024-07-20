@@ -4,20 +4,21 @@ import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
+import { CircleUserRound } from 'lucide-react';
 
 export default function AuthenticatedLayout({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    <div className="min-h-screen bg-white">
+      <nav className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="shrink-0 flex items-center">
                 <Link href="/">
-                  <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                  <ApplicationLogo className="block h-9 w-auto fill-current text-black" />
                 </Link>
               </div>
 
@@ -25,30 +26,35 @@ export default function AuthenticatedLayout({ user, header, children }) {
                 <NavLink
                   href={route("dashboard")}
                   active={route().current("dashboard")}
+                  className="text-black"
                 >
                   Dashboard
                 </NavLink>
                 <NavLink
                   href={route("project.index")}
                   active={route().current("project.index")}
+                  className="text-black"
                 >
-                  Projects
+                  Product
                 </NavLink>
                 <NavLink
                   href={route("task.index")}
                   active={route().current("task.index")}
+                  className="text-black"
                 >
                   All Tasks
                 </NavLink>
                 <NavLink
                   href={route("user.index")}
                   active={route().current("user.index")}
+                  className="text-black"
                 >
                   Users
                 </NavLink>
                 <NavLink
                   href={route("task.myTasks")}
                   active={route().current("task.myTasks")}
+                  className="text-black"
                 >
                   My Tasks
                 </NavLink>
@@ -62,7 +68,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                     <span className="inline-flex rounded-md">
                       <button
                         type="button"
-                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-black bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                       >
                         {user.name}
 
@@ -105,7 +111,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                     (previousState) => !previousState
                   )
                 }
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out"
+                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
               >
                 <svg
                   className="h-6 w-6"
@@ -146,17 +152,46 @@ export default function AuthenticatedLayout({ user, header, children }) {
             <ResponsiveNavLink
               href={route("dashboard")}
               active={route().current("dashboard")}
+              className="text-black"
             >
               Dashboard
             </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("project.index")}
+              active={route().current("project.index")}
+              className="text-black"
+            >
+              Product
+            </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("task.index")}
+              active={route().current("task.index")}
+              className="text-black"
+            >
+              All Tasks
+            </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("user.index")}
+              active={route().current("user.index")}
+              className="text-black"
+            >
+              Users
+            </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("task.myTasks")}
+              active={route().current("task.myTasks")}
+              className="text-black"
+            >
+              My Tasks
+            </ResponsiveNavLink>
           </div>
 
-          <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+          <div className="pt-4 pb-1 border-t border-gray-200">
             <div className="px-4">
-              <div className="font-medium text-base text-gray-800 dark:text-gray-200">
+              <div className="font-medium text-base text-black">
                 {user.name}
               </div>
-              <div className="font-medium text-sm text-gray-500">
+              <div className="font-medium text-sm text-black">
                 {user.email}
               </div>
             </div>
@@ -169,6 +204,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                 method="post"
                 href={route("logout")}
                 as="button"
+                className="text-black"
               >
                 Log Out
               </ResponsiveNavLink>
@@ -178,7 +214,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
       </nav>
 
       {header && (
-        <header className="bg-white dark:bg-gray-800 shadow">
+        <header className="bg-white shadow">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             {header}
           </div>

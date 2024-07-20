@@ -99,17 +99,11 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route('login')}
-                        className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
+                <div className="mt-5 text-center">
+                    <PrimaryButton className=" w-full h-10 mb-4" disabled={processing}>
+                        Registrasi
                     </PrimaryButton>
+                    <Link href={route('login')}>Login</Link>
                 </div>
             </form>
         </GuestLayout>

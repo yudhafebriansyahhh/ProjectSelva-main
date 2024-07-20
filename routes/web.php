@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
@@ -20,7 +21,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('task.myTasks');
     Route::resource('task', TaskController::class);
     Route::resource('user', UserController::class);
+
+    Route::get("/home", [PageController::class, 'index'])->name('home');
+    Route::get("/detail_produk", [PageController::class, 'detail_product'])->name('detail');
 });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,4 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/jiah', [ProjectController::class, 'ehe']);
 
+
 require __DIR__ . '/auth.php';
+
+

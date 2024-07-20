@@ -3,14 +3,22 @@ import { Link } from '@inertiajs/react';
 
 export default function Guest({ children }) {
     return (
-        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <Link href="/">
-                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                </Link>
+        <div className="flex flex-col justify-center items-center">
+            <div
+                className='object-cover  w-full h-[300px] flex items-center justify-center'
+                style={{
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundImage: 'url(/yuda.jpg)', // Ganti dengan path gambar Anda
+                }}
+            >
+                <div className='text-center text-white'>
+                    <h1 className='text-4xl font-bold'>Welcome!</h1>
+                    <p className='mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, est.</p>
+                </div>
             </div>
 
-            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+            <div className="w-[400px] p-5 shadow-xl rounded-xl border -mt-20 bg-white">
                 {children}
             </div>
         </div>
